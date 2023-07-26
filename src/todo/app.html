@@ -1,0 +1,99 @@
+<header>
+    <div class="bg-stone-800 lg:flex lg:items-center">
+        <div class="items-center justify-center lg:justify-start p-5 flex">
+            <h1 class="text-3xl mx-5 font-light text-gray-300">To Do List</h1>
+            <img class="w-8 h-8 rounded-md"
+                src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="">
+        </div>
+        <div class="p-4 flex justify-center lg:justify-start">
+            <a class="text-gray-300 underline underline-offset-4" href="#">Source Code</a>
+        </div>
+    </div>
+</header>
+<main>
+    <section>
+        <div class="flex justify-center mt-4">
+            <form class="w-full">
+                <h3 class="text-2xl text-center text-gray-300 my-3">New task.</h3>
+                <label class="flex justify-center" for="task">
+                    <input placeholder="Add a new task."
+                        class="bg-stone-800 transition-all focus:transition-all h-10 w-3/4 lg:w-2/5 placeholder:text-stone-500 p-4 text-sm text-stone-300 rounded-md focus:outline-none focus:ring-2  focus:ring-green-300 focus:ring-opacity-70"
+                        id="task_input" name="task" type="text">
+                </label>
+                <div class="flex justify-center mx-10">
+                    <button
+                        class="my-4 bg-green-500 p-2 text-black font-semibold rounded-md w-full lg:w-3/12">Ok!</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <div class="flex justify-center">
+        <div class="my-6 lg:my-10 w-10/12">
+            <section>
+                <div class="flex justify-center lg:justify-start lg:mx-5">
+                    <div class="fixed bottom-0 lg:sticky w-full lg:w-auto">
+                        <header>
+                            <nav>
+                                <ul class="flex justify-center text-center bg-stone-800 lg:rounded-md">
+                                    <li
+                                        class="hover:bg-stone-700 transition-all hover:transition-all hover:rounded-md px-3 text-gray-300 text-sm flex items-center cursor-pointer">
+                                        <i class="fa-solid fa-list-check"></i>
+                                        <p class="p-3">Tasks</p>
+                                    </li>
+                                    <li
+                                        class="hover:bg-stone-700 transition-all hover:transition-all hover:rounded-md px-3 text-gray-300 text-sm flex items-center cursor-pointer">
+                                        <i class="fa-solid fa-check text-green-500"></i>
+                                        <p class="p-3">Completed</p>
+                                    </li>
+                                    <li
+                                        class="hover:bg-stone-700 transition-all hover:transition-all hover:rounded-md                           px-3 text-gray-300 text-sm flex items-center cursor-pointer">
+                                        <i class="fa-solid fa-clock text-yellow-500"></i>
+                                        <p class="p-3">Pending</p>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </header>
+                    </div>
+                </div>
+            </section>
+           <div class="lg:flex">
+            <section>
+                <div class=" bg-stone-800 mx-5 rounded-md my-2 p-2">
+                    <h3 class="text-xl lg:text-2xl text-gray-300 font-thin text-center my-2">Tasks</h3>
+                    <div class="overflow-scroll  h-48">
+                        <div class="bg-stone-900 my-2 flex items-center justify-between">
+                            <div class="p-3 flex items-center">
+                                <i class="fa-solid fa-clock mr-2 cursor-pointer text-yellow-500"></i>
+                                <p class="text-sm text-gray-300">Hacer la cama</p>
+                            </div>
+                            <div>
+                                <i class="fa-solid cursor-pointer fa-trash mx-3 text-red-600"></i>
+                            </div>
+                        </div>
+                        <div class="bg-stone-900 my-2 flex items-center justify-between">
+                            <div class="p-3 flex items-center">
+                                <i class="fa-solid fa-check mr-2 cursor-pointer text-green-500"></i>
+                                <p class="text-sm text-gray-300">Estudiar</p>
+                            </div>
+                            <div>
+                                <i class="fa-solid cursor-pointer fa-trash mx-3 text-red-600"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class=" bg-stone-800 mx-5 rounded-md my-2 p-2">
+                    <h3 class="text-xl lg:text-2xl text-gray-300 font-thin text-center my-2">Stats</h3>
+                    <div class="bg-stone-900 my-2 flex items-center justify-between">
+                        <div class="p-3 flex items-center">
+                            <i class="fa-solid fa-clock mr-2 cursor-pointer text-yellow-500"></i>
+                            <p class="text-sm text-gray-300">1</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+           </div>
+        </div>
+    </div>
+</main>
