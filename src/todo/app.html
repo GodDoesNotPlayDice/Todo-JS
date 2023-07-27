@@ -15,20 +15,21 @@
         <div class="flex justify-center mt-4">
             <form class="w-full">
                 <h3 class="text-2xl text-center text-gray-300 my-3">New task.</h3>
-                <label class="flex justify-center" for="task">
+                <label class="flex flex-col items-center" for="task">
                     <input placeholder="Add a new task."
-                        class="bg-stone-800 transition-all focus:transition-all h-10 w-3/4 lg:w-2/5 placeholder:text-stone-500 p-4 text-sm text-stone-300 rounded-md focus:outline-none focus:ring-2  focus:ring-green-300 focus:ring-opacity-70"
+                        class="bg-stone-800 transition-all focus:transition-all h-10 w-3/4 lg:max-w-xl placeholder:text-stone-500 p-4 text-sm text-stone-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-opacity-70"
                         id="task_input" name="task" type="text">
-                </label>
+                        <p id="error_text" class="text-red-600 my-2 relative lg:right-48 hidden"></p>
+                    </label>
                 <div class="flex justify-center mx-10">
                     <button
-                        class="my-4 bg-green-500 p-2 text-black font-semibold rounded-md w-full lg:w-3/12">Ok!</button>
-                </div>
+                        class="my-4 bg-green-500 hover:bg-green-700 hover:transition-all transition-all p-2 text-black font-semibold rounded-md w-full lg:max-w-sm" id="btn_add">Ok!</button>
+                    </div>
             </form>
         </div>
     </section>
     <div class="flex justify-center">
-        <div class="my-6 lg:my-10 w-10/12">
+        <div class="my-6 lg:my-10 w-10/12 lg:w-full">
             <section>
                 <div class="flex justify-center lg:justify-start lg:mx-5">
                     <div class="fixed bottom-0 lg:sticky w-full lg:w-auto">
@@ -36,17 +37,17 @@
                             <nav>
                                 <ul class="flex justify-center text-center bg-stone-800 lg:rounded-md">
                                     <li
-                                        class="hover:bg-stone-700 transition-all hover:transition-all hover:rounded-md px-3 text-gray-300 text-sm flex items-center cursor-pointer">
+                                        class="hover:bg-stone-700 transition-all hover:transition-all hover:rounded-l-md px-3 text-gray-300 text-sm flex items-center cursor-pointer">
                                         <i class="fa-solid fa-list-check"></i>
                                         <p class="p-3">Tasks</p>
                                     </li>
                                     <li
-                                        class="hover:bg-stone-700 transition-all hover:transition-all hover:rounded-md px-3 text-gray-300 text-sm flex items-center cursor-pointer">
+                                        class="hover:bg-stone-700 transition-all hover:transition-all px-3 text-gray-300 text-sm flex items-center cursor-pointer">
                                         <i class="fa-solid fa-check text-green-500"></i>
                                         <p class="p-3">Completed</p>
                                     </li>
                                     <li
-                                        class="hover:bg-stone-700 transition-all hover:transition-all hover:rounded-md                           px-3 text-gray-300 text-sm flex items-center cursor-pointer">
+                                        class="hover:bg-stone-700 transition-all hover:transition-all hover:rounded-r-md px-3 text-gray-300 text-sm flex items-center cursor-pointer">
                                         <i class="fa-solid fa-clock text-yellow-500"></i>
                                         <p class="p-3">Pending</p>
                                     </li>
@@ -57,38 +58,32 @@
                 </div>
             </section>
            <div class="lg:flex">
-            <section>
+            <section class="w-full">
                 <div class=" bg-stone-800 mx-5 rounded-md my-2 p-2">
                     <h3 class="text-xl lg:text-2xl text-gray-300 font-thin text-center my-2">Tasks</h3>
-                    <div class="overflow-scroll  h-48">
-                        <div class="bg-stone-900 my-2 flex items-center justify-between">
-                            <div class="p-3 flex items-center">
-                                <i class="fa-solid fa-clock mr-2 cursor-pointer text-yellow-500"></i>
-                                <p class="text-sm text-gray-300">Hacer la cama</p>
-                            </div>
-                            <div>
-                                <i class="fa-solid cursor-pointer fa-trash mx-3 text-red-600"></i>
-                            </div>
-                        </div>
-                        <div class="bg-stone-900 my-2 flex items-center justify-between">
-                            <div class="p-3 flex items-center">
-                                <i class="fa-solid fa-check mr-2 cursor-pointer text-green-500"></i>
-                                <p class="text-sm text-gray-300">Estudiar</p>
-                            </div>
-                            <div>
-                                <i class="fa-solid cursor-pointer fa-trash mx-3 text-red-600"></i>
-                            </div>
-                        </div>
+                    <div class="overflow-scroll scroll-smooth px-5 h-60" id="todo-list">
                     </div>
                 </div>
             </section>
-            <section>
-                <div class=" bg-stone-800 mx-5 rounded-md my-2 p-2">
-                    <h3 class="text-xl lg:text-2xl text-gray-300 font-thin text-center my-2">Stats</h3>
+            <section class="lg:w-3/4">
+                <div class=" bg-stone-800 mx-5 rounded-md my-2 mb-10 p-2">
+                    <h3 class="text-xl lg:text-2xl text-gray-300 font-thin text-center my-2">Task Status</h3>
                     <div class="bg-stone-900 my-2 flex items-center justify-between">
                         <div class="p-3 flex items-center">
                             <i class="fa-solid fa-clock mr-2 cursor-pointer text-yellow-500"></i>
-                            <p class="text-sm text-gray-300">1</p>
+                            <p id="count-pending" class="text-sm text-gray-300"></p>
+                        </div>
+                    </div>
+                    <div class="bg-stone-900 my-2 flex items-center justify-between">
+                        <div class="p-3 flex items-center">
+                            <i class="fa-solid fa-check mr-2 cursor-pointer text-green-500"></i>
+                            <p id="count-done" class="text-sm text-gray-300"></p>
+                        </div>
+                    </div>
+                    <div class="bg-stone-900 my-2 flex items-center justify-between">
+                        <div class="p-3 flex items-center">
+                            <i class="fa-solid fa-list-check text-white mr-2 cursor-pointer"></i>
+                            <p id="count-all" class="text-sm text-gray-300"></p>
                         </div>
                     </div>
                 </div>
