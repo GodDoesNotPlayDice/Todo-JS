@@ -1,6 +1,5 @@
 import { Todo } from '../models/todo.model.js';
 
-
 export const createTodoHTML = (todo) => {
     if (!todo instanceof Todo) throw new Error('Invalid Todo instance');
     const status = todo.status ? 'fa-solid fa-check mr-2 cursor-pointer text-green-500' : 'fa-solid fa-clock mr-2 text-yellow-500';

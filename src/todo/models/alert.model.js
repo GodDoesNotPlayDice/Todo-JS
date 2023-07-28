@@ -1,4 +1,4 @@
-import iziToast from 'izitoast';
+// import iziToast from 'izitoast';
 
 export const alert_info = (message) => {
     if (window.innerWidth <= 1020) {
