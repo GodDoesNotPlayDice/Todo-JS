@@ -31,6 +31,8 @@ export const App = ( elementID ) => {
         const todos = todoStore.getTodos(todoStore.getCurrentFilter());
         let last_todo = todos[todos.length - 1];
         renderTodo(elementIDs.todoList, last_todo);
+        const todos_all = todoStore.getTodos(todoStore.Filters.All);
+        countTodos(elementIDs.count_done, elementIDs.count_pending, elementIDs.count_all ,todos_all)
     };
 
     (() => {
