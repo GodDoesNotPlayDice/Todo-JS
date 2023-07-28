@@ -13,13 +13,11 @@ const state = {
 
 const initStore = () => {
     loadStore();
-    console.log('initStore 🧻');
 }
 
 
 const loadStore = () => {
     if (!localStorage.getItem('state')) return;
-    console.log(JSON.parse(localStorage.getItem('state')));
     const { todos = [], filter = Filters.All } = JSON.parse(localStorage.getItem('state'));
     state.todos = todos
     state.filter = filter;

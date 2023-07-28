@@ -73,6 +73,7 @@ export const App = ( elementID ) => {
             error_text.classList.add('hidden');
             const text = textInput.value.trim();
             todoStore.addTodo(text);
+            textInput.value = '';
             displayTodo();
         }
     });
@@ -84,7 +85,6 @@ export const App = ( elementID ) => {
         let data_id = element.getAttribute('data_id');
         if (e.target.classList.contains('fa-trash')) {
             todoStore.deleteTodo (data_id);
-            console.log('delete');
             displayTodos();
             return;
         } else {
@@ -105,8 +105,7 @@ export const App = ( elementID ) => {
         todoStore.setFilter(taks_status);
         displayTodos();
     });
-
-    
-
-    
 }
+
+console.log('Created By GodDoesNotPlayDice');
+console.log('https://github.com/GodDoesNotPlayDice');
