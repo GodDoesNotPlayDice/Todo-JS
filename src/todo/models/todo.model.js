@@ -9,7 +9,7 @@ export class Todo {
     constructor(title, status) {
         this.id = uuidv4();
         this.title = title;
-        this.status = status;
+        this.status = Boolean(status);
         this.createdAt = new Date();
     }
     

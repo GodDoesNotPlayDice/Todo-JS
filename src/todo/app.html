@@ -1,12 +1,13 @@
 <header>
     <div class="bg-stone-800 lg:flex lg:items-center">
         <div class="items-center justify-center lg:justify-start p-5 flex">
-            <h1 class="text-3xl mx-5 font-light text-gray-300">To Do List</h1>
-            <img class="w-8 h-8 rounded-md"
+            <h1 class="text-3xl mx-5 font-light text-gray-300  animate__animated animate__flip">To Do List</h1>
+            <img class="w-8 h-8 rounded-md animate__zoomInUp animate__animated"
                 src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="">
         </div>
         <div class="p-4 flex justify-center lg:justify-start">
-            <a class="text-gray-300 underline underline-offset-4" href="#">Source Code</a>
+            <a class="text-gray-300 underline underline-offset-4"
+                href="https://github.com/GodDoesNotPlayDice/Todo-JS">Source Code</a>
         </div>
     </div>
 </header>
@@ -17,36 +18,37 @@
                 <h3 class="text-2xl text-center text-gray-300 my-3">New task.</h3>
                 <label class="flex flex-col items-center" for="task">
                     <input placeholder="Add a new task."
-                        class="bg-stone-800 transition-all focus:transition-all h-10 w-3/4 lg:max-w-xl placeholder:text-stone-500 p-4 text-sm text-stone-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-opacity-70"
+                        class="animate__rubberBand animate__animated bg-stone-800 transition-all focus:transition-all h-10 w-3/4 lg:max-w-xl placeholder:text-stone-500 p-4 text-sm text-stone-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-opacity-70"
                         id="task_input" name="task" type="text">
-                        <p id="error_text" class="text-red-600 my-2 relative lg:right-48 hidden"></p>
-                    </label>
+                    <p id="error_text" class="text-red-600 my-2 relative lg:right-40 hidden"></p>
+                </label>
                 <div class="flex justify-center mx-10">
                     <button
-                        class="my-4 bg-green-500 hover:bg-green-700 hover:transition-all transition-all p-2 text-black font-semibold rounded-md w-full lg:max-w-sm" id="btn_add">Ok!</button>
-                    </div>
+                        class="my-4 bg-green-500 hover:bg-green-700 hover:transition-all transition-all p-2 text-black font-semibold rounded-md w-full lg:max-w-sm"
+                        id="btn_add">Ok!</button>
+                </div>
             </form>
         </div>
     </section>
-    <div class="flex justify-center">
+    <div class="flex justify-center overflow-x-hidden">
         <div class="my-6 lg:my-10 w-10/12 lg:w-full">
             <section>
                 <div class="flex justify-center lg:justify-start lg:mx-5">
                     <div class="fixed bottom-0 lg:sticky w-full lg:w-auto">
                         <header>
                             <nav>
-                                <ul class="flex justify-center text-center bg-stone-800 lg:rounded-md">
-                                    <li
+                                <ul id="task-states" class="flex justify-center text-center bg-stone-800 lg:rounded-md">
+                                    <li data-state="all"
                                         class="hover:bg-stone-700 transition-all hover:transition-all hover:rounded-l-md px-3 text-gray-300 text-sm flex items-center cursor-pointer">
                                         <i class="fa-solid fa-list-check"></i>
                                         <p class="p-3">Tasks</p>
                                     </li>
-                                    <li
+                                    <li data-state="completed"
                                         class="hover:bg-stone-700 transition-all hover:transition-all px-3 text-gray-300 text-sm flex items-center cursor-pointer">
                                         <i class="fa-solid fa-check text-green-500"></i>
                                         <p class="p-3">Completed</p>
                                     </li>
-                                    <li
+                                    <li data-state="pending"
                                         class="hover:bg-stone-700 transition-all hover:transition-all hover:rounded-r-md px-3 text-gray-300 text-sm flex items-center cursor-pointer">
                                         <i class="fa-solid fa-clock text-yellow-500"></i>
                                         <p class="p-3">Pending</p>
@@ -57,38 +59,44 @@
                     </div>
                 </div>
             </section>
-           <div class="lg:flex">
-            <section class="w-full">
-                <div class=" bg-stone-800 mx-5 rounded-md my-2 p-2">
-                    <h3 class="text-xl lg:text-2xl text-gray-300 font-thin text-center my-2">Tasks</h3>
-                    <div class="overflow-scroll scroll-smooth px-5 h-60" id="todo-list">
-                    </div>
-                </div>
-            </section>
-            <section class="lg:w-3/4">
-                <div class=" bg-stone-800 mx-5 rounded-md my-2 mb-10 p-2">
-                    <h3 class="text-xl lg:text-2xl text-gray-300 font-thin text-center my-2">Task Status</h3>
-                    <div class="bg-stone-900 my-2 flex items-center justify-between">
-                        <div class="p-3 flex items-center">
-                            <i class="fa-solid fa-clock mr-2 cursor-pointer text-yellow-500"></i>
-                            <p id="count-pending" class="text-sm text-gray-300"></p>
+            <div class="lg:flex">
+                <section class="w-full">
+                    <div class=" bg-stone-800 mx-5 rounded-md my-2 p-2">
+                        <h3 class="text-xl lg:text-2xl text-gray-300 font-thin text-center my-2">Tasks</h3>
+                        <div class="overflow-auto lg:overflow-auto px-5 max-h-96" id="todo-list">
                         </div>
                     </div>
-                    <div class="bg-stone-900 my-2 flex items-center justify-between">
-                        <div class="p-3 flex items-center">
-                            <i class="fa-solid fa-check mr-2 cursor-pointer text-green-500"></i>
-                            <p id="count-done" class="text-sm text-gray-300"></p>
+                </section>
+                <section class="lg:w-3/4">
+                    <div class=" bg-stone-800 mx-5 rounded-md my-2 mb-10 p-2">
+                        <h3 class="text-xl lg:text-2xl text-gray-300 font-thin text-center my-2">Task Status</h3>
+                        <div class="bg-stone-900 my-2 flex items-center justify-between">
+                            <div class="p-3 flex items-center">
+                                <i class="fa-solid fa-clock mr-2 cursor-pointer text-yellow-500"></i>
+                                <p id="count-pending" class="text-sm text-gray-300"></p>
+                            </div>
+                        </div>
+                        <div class="bg-stone-900 my-2 flex items-center justify-between">
+                            <div class="p-3 flex items-center">
+                                <i class="fa-solid fa-check mr-2 cursor-pointer text-green-500"></i>
+                                <p id="count-done" class="text-sm text-gray-300"></p>
+                            </div>
+                        </div>
+                        <div class="bg-stone-900 my-2 flex items-center justify-between">
+                            <div class="p-3 flex items-center">
+                                <i class="fa-solid fa-list-check text-white mr-2 cursor-pointer"></i>
+                                <p id="count-all" class="text-sm text-gray-300"></p>
+                            </div>
                         </div>
                     </div>
-                    <div class="bg-stone-900 my-2 flex items-center justify-between">
-                        <div class="p-3 flex items-center">
-                            <i class="fa-solid fa-list-check text-white mr-2 cursor-pointer"></i>
-                            <p id="count-all" class="text-sm text-gray-300"></p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-           </div>
+                </section>
+            </div>
         </div>
+    </div>
+    <div class="flex justify-start">
+        <div id="clear-completed" class="animate__bounce animate__animated group transition-all group-hover:trasition-all p-4 mx-2 lg:mx-4 lg:bottom-4 fixed bottom-14 flex justify-center items-center bg-red-800 bg-opacity-95 rounded-full hover:bg-red-700 cursor-pointer">
+            <i class="fa-solid cursor-pointer fa-trash text-white"></i>
+            <p class="transition-all group-hover:trasition-all overflow-hidden opacity-0 w-0 h-0 text-sm text-white group-hover:opacity-100 group-hover:w-auto group-hover:h-auto group-hover:ml-2">Delete all completed</p>
+        </div>                        
     </div>
 </main>
