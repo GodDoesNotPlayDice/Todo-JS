@@ -45,13 +45,13 @@ const addTodo = (title) => {
     if (!title) throw new Error('Title is required');
         state.todos.push(new Todo (title, false));
         saveStateToLocalStorage();
-        alert_success('Add Task Successfully');
+        alert_success('Add' ,'Add Task Successfully');
 
 }
 const toggleTodo = (todoId) => {
     state.todos = state.todos.map(todo => {
         if (todo.id === todoId) {
-            alert_success(todo.status ? 'Task pending' : 'Task completed');
+            alert_success('Change Status' , todo.status ? 'Task pending' : 'Task completed');
             todo.status = !todo.status;
         }
         return todo;

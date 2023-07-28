@@ -17,16 +17,16 @@ export const alert_info = (message) => {
 };
 
 
-export const alert_success = (message) => {
+export const alert_success = (title ,message) => {
     if (window.innerWidth <= 1020) {
         iziToast.success({
-            title: 'Change status',
+            title: `${title}`,
             message: `${message}`,
             position: 'topCenter'
         });
     } else {
         iziToast.success({
-            title: 'Change status',
+            title: `${title}`,
             message: `${message}`,
             position: 'bottomRight',
         });
